@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿MainMenu mainMenu = new();
+
+
+while (true)
+{
+    mainMenu.Main();
+}
