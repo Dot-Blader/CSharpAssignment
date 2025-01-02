@@ -2,11 +2,14 @@
 
 public static class Contacts
 {
-    public static List<Contact> contacts = new();
+    private static FileServices _fileServices = new("Data", "contacts.json");
+
+    private static List<Contact> contacts = [];
 
     public static void ShowAllContacts()
     {
         Console.Clear();
+        Load();
         foreach (Contact contact in contacts)
         {
             Console.WriteLine($"{contact.FirstName} {contact.LastName}");
@@ -52,7 +55,13 @@ public static class Contacts
         Console.WriteLine("City: " + city);
         Console.WriteLine("Postal Code: " + postalCode);
         Console.ReadKey();
+        Load();
         contacts.Add(contact);
+        _fileServices.SaveContacts(contacts);
         Console.Clear();
+    }
+    private static void Load()
+    {
+        contacts = _fileServices.LoadContacts();
     }
 }

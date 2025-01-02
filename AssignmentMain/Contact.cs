@@ -10,6 +10,7 @@ public class Contact
     public string Address { get; set; }
     public string City { get; set; }
     public string PostalCode { get; set; }
+    public string Id { get; set; }
 
     public Contact(string firstName, string lastName, string email, string phone, string address, string city, string postalCode)
     {
@@ -20,5 +21,6 @@ public class Contact
         Address = address;
         City = city;
         PostalCode = postalCode;
+        Id = Guid.NewGuid().ToString();
     }
 }

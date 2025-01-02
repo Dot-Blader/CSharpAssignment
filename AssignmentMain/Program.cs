@@ -1,4 +1,6 @@
-﻿MainMenu mainMenu = new();
+﻿using AssignmentMain;
+
+MainMenu mainMenu = new();
 
 
 while (true)
