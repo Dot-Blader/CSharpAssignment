@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
 
-namespace AssignmentMain;
+namespace AssignmentMain.Services;
 
 public class FileServices
 {
@@ -16,7 +16,7 @@ public class FileServices
         _options = new JsonSerializerOptions { WriteIndented = true };
     }
 
-    public void SaveContacts(List<Contact> contacts)
+    public bool SaveContacts(List<Contact> contacts)
     {
         try
         {
@@ -27,10 +27,12 @@ public class FileServices
 
             var json = JsonSerializer.Serialize(contacts, _options);
             File.WriteAllText(_filePath, json);
+            return true;
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
+            return false;
         }
     }
     public List<Contact> LoadContacts()

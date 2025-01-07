@@ -17,6 +17,5 @@ public class MainMenu
         {
             Contacts.CreateNewContact();
         }
-
     }
 }

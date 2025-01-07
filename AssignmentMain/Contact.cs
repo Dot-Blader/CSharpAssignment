@@ -1,5 +1,4 @@
-﻿
-namespace AssignmentMain;
+﻿namespace AssignmentMain;
 
 public class Contact
 {

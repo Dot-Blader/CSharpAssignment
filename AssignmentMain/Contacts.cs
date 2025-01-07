@@ -1,4 +1,6 @@
-﻿namespace AssignmentMain;
+﻿using AssignmentMain.Services;
+
+namespace AssignmentMain;
 
 public static class Contacts
 {
@@ -54,10 +56,11 @@ public static class Contacts
         Console.WriteLine("Home Address: " + address);
         Console.WriteLine("City: " + city);
         Console.WriteLine("Postal Code: " + postalCode);
+        Console.WriteLine("ID: " + contact.Id);
         Console.ReadKey();
         Load();
         contacts.Add(contact);
-        _fileServices.SaveContacts(contacts);
+        bool save = _fileServices.SaveContacts(contacts);
         Console.Clear();
     }
     private static void Load()
